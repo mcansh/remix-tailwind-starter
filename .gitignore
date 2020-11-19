@@ -1,0 +1,6 @@
+.ds_store
+node_modules
+.cache
+build
+public/build
+app/**/*.css
