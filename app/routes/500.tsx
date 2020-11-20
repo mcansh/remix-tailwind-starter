@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
 function meta() {
-  return { title: "Shoot..." };
+  return { title: 'Shoot...' };
 }
 
 const FiveHundred: React.VFC = () => {
-  console.error("Check your server terminal output");
+  console.error('Check your server terminal output');
 
   return (
     <div>

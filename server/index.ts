@@ -1,12 +1,13 @@
-import express from "express";
-import { createRequestHandler } from "@remix-run/express";
+/* eslint-disable no-console */
+import express from 'express';
+import { createRequestHandler } from '@remix-run/express';
 
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 app.all(
-  "*",
+  '*',
   createRequestHandler({
     getLoadContext(req, res) {
       return { req, res };
@@ -14,8 +15,8 @@ app.all(
   })
 );
 
-const port = process.env.PORT || 3000;
+const { PORT = 3000 } = process.env;
 
-app.listen(port, () => {
-  console.log(`Express server started on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Express server started on http://localhost:${PORT}`);
 });
