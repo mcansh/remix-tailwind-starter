@@ -1,0 +1,4 @@
+{
+  "notifiy": false,
+  "ignore": ["app", "build", "public", ".cache"]
+}

@@ -15,7 +15,7 @@
     "build": "yarn run build:css && remix build && tsc -b",
     "build:css": "postcss styles --base styles --dir app/ --env production",
     "dev": "concurrently --names \"css,remix,server,loaders\" --prefix-colors \"cyan,magenta,green,red\" \"npm run dev:css\" \"npm run dev:remix\" \"npm run dev:server\" \"npm run dev:loaders\"",
-    "dev:server": "cross-env NODE_ENV=development node-dev server.js --ignore app --ignore build --notify false",
+    "dev:server": "cross-env NODE_ENV=development node-dev server.js",
     "dev:remix": "cross-env NODE_ENV=development remix run",
     "dev:loaders": "tsc -b -w",
     "dev:css": "postcss styles --base styles --dir app/ -w",
