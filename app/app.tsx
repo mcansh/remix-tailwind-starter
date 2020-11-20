@@ -11,12 +11,13 @@ const App: React.VFC = () => {
         <Meta />
         <Styles />
       </head>
-      <body>
+      <body className="dark:bg-gray-800 dark:text-white">
         <Routes />
-        <Scripts />
-        <footer className="pt-20 text-center text-gray-600">
+        <footer className="pt-20 text-center text-gray-600 dark:text-white">
           <p>This page was rendered at {data.date.toLocaleString()}</p>
         </footer>
+
+        <Scripts />
       </body>
     </html>
   );
