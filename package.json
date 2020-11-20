@@ -14,7 +14,7 @@
   "scripts": {
     "build": "yarn run build:css && remix build && tsc -b",
     "build:css": "postcss styles --base styles --dir app/ --env production",
-    "dev": "concurrently \"yarn run dev:css\" \"remix run\" \"tsc -b -w\" \"cross-env NODE_ENV=development nodemon -w app -w loaders -e js,ts,tsx server.js\"",
+    "dev": "concurrently --names \"css,remix,server\" --prefix-colors \"cyan,magenta,green\" \"npm run dev:css\" \"remix run\" \"tsc -b -w\" \"cross-env NODE_ENV=development nodemon -w app -w loaders -e js,ts,tsx server.js\"",
     "dev:css": "postcss styles --base styles --dir app/ -w",
     "start": "node server.js"
   },
