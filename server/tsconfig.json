@@ -4,7 +4,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "../build/server",
-    "module": "commonjs",
-    "esModuleInterop": true
+    "module": "commonjs"
   }
 }
