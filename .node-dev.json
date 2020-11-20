@@ -1,4 +1,0 @@
-{
-  "notify": false,
-  "ignore": ["build", "public", ".cache"]
-}

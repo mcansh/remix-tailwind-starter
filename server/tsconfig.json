@@ -1,0 +1,10 @@
+{
+  "extends": "../config/shared-tsconfig.json",
+  "include": ["**/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "../build/server",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true
+  }
+}

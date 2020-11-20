@@ -35,7 +35,10 @@ module.exports = {
    * to "loaders". The loaders directory contains "data loaders" for your
    * routes.
    */
-  loadersDirectory: "build/loaders",
+  loadersDirectory:
+    process.env.NODE_ENV === "production"
+      ? "build/server/loaders"
+      : "server/loaders",
 
   /**
    * The path to the browser build, relative to remix.config.js. Defaults to

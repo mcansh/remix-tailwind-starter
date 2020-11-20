@@ -1,5 +1,9 @@
+// express uses module.exports = () => {}
+// and this makes TypeScript sad...
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const express = require("express");
-const { createRequestHandler } = require("@remix-run/express");
+
+import { createRequestHandler } from "@remix-run/express";
 
 let app = express();
 
