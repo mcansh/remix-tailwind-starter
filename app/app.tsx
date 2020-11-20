@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Meta, Scripts, Styles, Routes, useGlobalData } from "@remix-run/react";
+import * as React from 'react';
+import { Meta, Scripts, Styles, Routes, useGlobalData } from '@remix-run/react';
 
 const App: React.VFC = () => {
-  const data = useGlobalData();
+  const data = useGlobalData<{ date: Date }>();
 
   return (
     <html lang="en">

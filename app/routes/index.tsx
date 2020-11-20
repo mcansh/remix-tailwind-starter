@@ -1,15 +1,15 @@
-import * as React from "react";
-import { useRouteData } from "@remix-run/react";
+import * as React from 'react';
+import { useRouteData } from '@remix-run/react';
 
 function meta() {
   return {
-    title: "Remix Starter",
-    description: "Welcome to remix!",
+    title: 'Remix Starter',
+    description: 'Welcome to remix!',
   };
 }
 
 const Index: React.VFC = () => {
-  const data = useRouteData();
+  const data = useRouteData<{ message: string }>();
 
   return (
     <div className="p-5 text-center">
