@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Meta, Scripts, Styles, Routes, useGlobalData } from "@remix-run/react";
 
 const App: React.VFC = () => {
