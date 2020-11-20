@@ -16,7 +16,7 @@
     "build:css": "postcss styles --base styles --dir app/ --env production",
     "dev": "cross-env NODE_ENV=development concurrently --names \"remix-run,css,nodemon,loaders\" --prefix-colors \"magenta,cyan,green\" \"remix run\" \"npm run dev:css\" \"nodemon --watch server --ext ts start.js\"",
     "dev:css": "postcss styles --base styles --dir app/ -w",
-    "start": "node start.js"
+    "start": "cross-env NODE_ENV=production node start.js"
   },
   "dependencies": {
     "@remix-run/cli": "0.7.0",
