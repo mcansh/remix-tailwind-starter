@@ -9,7 +9,7 @@ function meta() {
 }
 
 const Index: React.VFC = () => {
-  let data = useRouteData();
+  const data = useRouteData();
 
   return (
     <div className="p-5 text-center">
