@@ -5,3 +5,4 @@ build
 public/build
 app/**/*.css
 .eslintcache
+.vercel
