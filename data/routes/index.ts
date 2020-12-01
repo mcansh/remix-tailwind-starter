@@ -1,6 +1,6 @@
-import type { DataLoader } from '@remix-run/core';
+import type { Loader } from '@remix-run/data';
 
-const loader: DataLoader = () => {
+const loader: Loader = () => {
   const body = JSON.stringify({ message: 'this is awesome 😎' });
   return new Response(body, {
     status: 200,
@@ -10,4 +10,4 @@ const loader: DataLoader = () => {
   });
 };
 
-export = loader;
+export { loader };

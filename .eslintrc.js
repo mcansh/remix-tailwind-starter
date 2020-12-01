@@ -6,7 +6,7 @@ module.exports = {
     project: [
       path.join(process.cwd(), 'config/shared-tsconfig.json'),
       path.join(process.cwd(), 'app/tsconfig.json'),
-      path.join(process.cwd(), 'server/tsconfig.json'),
+      path.join(process.cwd(), 'data/tsconfig.json'),
     ],
   },
 };
