@@ -12,7 +12,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh/)",
   "main": "server.js",
   "scripts": {
-    "build": "yarn run build:css && remix build && tsc -b",
+    "build": "tsc -b && yarn run build:css && remix build",
     "build:css": "postcss styles --base styles --dir app/ --env production",
     "dev": "cross-env NODE_ENV=development concurrently --names \"remix-run,css,nodemon,loaders\" --prefix-colors \"magenta,cyan,green\" \"remix run\" \"npm run dev:css\" \"nodemon --watch server --ext ts start.js\"",
     "dev:css": "postcss styles --base styles --dir app/ -w",
