@@ -4,7 +4,7 @@ function meta() {
   return { title: 'Shoot...' };
 }
 
-const FiveHundred = () => {
+const FiveHundred: React.VFC = () => {
   console.error('Check your server terminal output');
 
   return (

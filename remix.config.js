@@ -1,11 +1,19 @@
+// Make sure you turn on "Automatically expose System Environment Variables" in the Vercel console here:
+// https://vercel.com/<username>/<app-name>/settings/environment-variables
+const isLocalDev =
+  process.env.VERCEL_ENV !== 'production' &&
+  process.env.VERCEL_ENV !== 'preview';
+
 module.exports = {
   /**
    * The path to the `app` directory, relative to remix.config.js. Defaults to
    * "app". All code in this directory is part of your app and will be compiled
    * by Remix.
    *
+   * We prevent vercel from building when it deploys because it chokes on the
+   * typescript files that Remix already built.
    */
-  appDirectory: 'app',
+  appDirectory: isLocalDev ? 'app' : 'app-build',
 
   /**
    * A hook for defining custom routes based on your own file conventions. This
@@ -21,7 +29,7 @@ module.exports = {
   //       "pages/one",
   //       // Options:
   //       {
-  //         // The path to this route's data loader, relative to `loadersDirectory`.
+  //         // The path to this route's data module, relative to `dataDirectory`.
   //         loader: "...",
   //         // The path to this route's styles file, relative to `appDirectory`.
   //         styles: "..."
@@ -31,14 +39,10 @@ module.exports = {
   // },
 
   /**
-   * The path to the `loaders` directory, relative to remix.config.js. Defaults
-   * to "loaders". The loaders directory contains "data loaders" for your
-   * routes.
+   * The path to the `data` directory, relative to remix.config.js. Defaults
+   * to "data". The data directory contains data modules for your routes.
    */
-  loadersDirectory:
-    process.env.NODE_ENV === 'production'
-      ? 'build/server/loaders'
-      : 'server/loaders',
+  dataDirectory: 'data-build',
 
   /**
    * The path to the browser build, relative to remix.config.js. Defaults to
@@ -59,7 +63,7 @@ module.exports = {
    * that are created from building your routes. They are used on the server to
    * generate HTML.
    */
-  serverBuildDirectory: 'build/app',
+  serverBuildDirectory: 'app-build',
 
   /**
    * The port to use when running `remix run`. Defaults to 8002.
