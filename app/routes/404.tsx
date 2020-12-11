@@ -4,7 +4,7 @@ function meta() {
   return { title: "Ain't nothing here" };
 }
 
-const FourOhFour = () => (
+const FourOhFour: React.VFC = () => (
   <div>
     <h1>404</h1>
   </div>
