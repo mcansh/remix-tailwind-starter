@@ -1,5 +1,16 @@
 import * as React from 'react';
 import { useRouteData } from '@remix-run/react';
+import type { Loader } from '@remix-run/data';
+
+const loader: Loader = () => {
+  const body = JSON.stringify({ message: 'this is awesome 😎' });
+  return new Response(body, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 
 function meta() {
   return {
@@ -24,4 +35,4 @@ const Index: React.VFC = () => {
 };
 
 export default Index;
-export { meta };
+export { loader, meta };
