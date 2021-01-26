@@ -15,11 +15,22 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "public/$1"
+      "destination": "/public/$1"
     },
     {
       "source": "/(.*)",
       "destination": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/build/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31540000000"
+        }
+      ]
     }
   ]
 }
