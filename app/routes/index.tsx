@@ -13,7 +13,7 @@ const Index: React.VFC = () => {
 
   return (
     <div className="p-5 text-center">
-      <h2>Welcome to Remix!</h2>
+      <h2 className="font-medium">Welcome to Remix!</h2>
       <p>
         <a href="https://remix.run/dashboard/docs">Check out the docs</a> to get
         started.
