@@ -3,9 +3,8 @@ import type { LinksFunction } from '@remix-run/react';
 import { Meta, Scripts, Links, useRouteData } from '@remix-run/react';
 import type { Loader } from '@remix-run/data';
 import { Outlet } from 'react-router';
-// @ts-expect-error remix forgot to export the css import types
 // eslint-disable-next-line import/extensions, import/no-unresolved
-import globalCSS from 'css:../styles/global.css';
+import globalCSS from 'css:./styles/global.css';
 
 interface RouteData {
   date: Date;
