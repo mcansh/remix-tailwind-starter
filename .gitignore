@@ -2,9 +2,6 @@
 /node_modules
 /.cache
 /build
-/app-build
-/data-build
 /public/build
-app/**/*.css
 .eslintcache
 .vercel
