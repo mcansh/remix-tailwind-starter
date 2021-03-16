@@ -14,8 +14,7 @@
   "scripts": {
     "build": "remix build",
     "clean": "del app-build public/build",
-    "predeploy": "npm run clean && npm run build",
-    "deploy": "vercel",
+    "vercel-build": "npm run build",
     "dev": "pm2-dev pm2.config.js",
     "postinstall": "husky install .config/husky",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx . --fix",
