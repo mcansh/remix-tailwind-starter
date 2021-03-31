@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useRouteData } from '@remix-run/react';
-import type { Loader } from '@remix-run/data';
+import type { LoaderFunction } from '@remix-run/node';
 
-const loader: Loader = () => {
+const loader: LoaderFunction = () => {
   const body = JSON.stringify({ message: 'this is awesome 😎' });
   return new Response(body, {
     status: 200,

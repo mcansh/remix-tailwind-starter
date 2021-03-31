@@ -1,16 +1,17 @@
 import * as React from 'react';
 import type { LinksFunction } from '@remix-run/react';
 import { Meta, Scripts, Links, useRouteData } from '@remix-run/react';
-import type { Loader } from '@remix-run/data';
+import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import { Outlet } from 'react-router';
-// eslint-disable-next-line import/extensions, import/no-unresolved
-import globalCSS from 'css:./styles/global.css';
+
+import globalCSS from './styles/global.css';
+import interCSS from './styles/inter.css';
 
 interface RouteData {
   date: Date;
 }
 
-const loader: Loader = () => {
+const loader: LoaderFunction = () => {
   const body = JSON.stringify({ date: new Date() });
   return new Response(body, {
     status: 200,
@@ -20,7 +21,14 @@ const loader: Loader = () => {
   });
 };
 
-const links: LinksFunction = () => [{ rel: 'stylesheet', href: globalCSS }];
+const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: globalCSS },
+  { rel: 'stylesheet', href: interCSS },
+];
+
+const meta: MetaFunction = () => ({
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+});
 
 const App: React.VFC = () => {
   const data = useRouteData<RouteData>();
@@ -45,4 +53,4 @@ const App: React.VFC = () => {
 };
 
 export default App;
-export { links, loader };
+export { links, loader, meta };

@@ -5,3 +5,4 @@
 /public/build
 .eslintcache
 .vercel
+/app/styles/**/*.css
