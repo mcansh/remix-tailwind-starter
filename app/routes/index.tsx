@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { useRouteData } from '@remix-run/react';
-import type { LoaderFunction } from '@remix-run/node';
+import type {
+  HeadersFunction,
+  LoaderFunction,
+  MetaFunction,
+} from '@remix-run/node';
 
 const loader: LoaderFunction = () => {
   const body = JSON.stringify({ message: 'this is awesome 😎' });
@@ -12,12 +16,15 @@ const loader: LoaderFunction = () => {
   });
 };
 
-function meta() {
-  return {
-    title: 'Remix Starter',
-    description: 'Welcome to remix!',
-  };
-}
+const meta: MetaFunction = () => ({
+  title: 'Remix Starter',
+  description: 'Welcome to remix!',
+});
+
+const headers: HeadersFunction = () => ({
+  'Cache-Control':
+    'max-age=600, s-maxage=604800, stale-while-revalidate=604800',
+});
 
 const Index: React.VFC = () => {
   const data = useRouteData<{ message: string }>();
@@ -35,4 +42,4 @@ const Index: React.VFC = () => {
 };
 
 export default Index;
-export { loader, meta };
+export { headers, loader, meta };
