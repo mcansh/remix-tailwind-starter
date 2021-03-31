@@ -10,17 +10,18 @@
   "repository": "mcansh/remix-tailwind-starter",
   "license": "MIT",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh/)",
+  "sideEffects": false,
   "main": "server.js",
   "scripts": {
     "build": "run-p build:*",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
     "build:remix": "remix build2",
     "clean": "del app-build public/build",
-    "vercel-build": "npm run build",
     "dev": "pm2-dev pm2.config.js",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx . --fix",
     "prepare": "husky install .config/husky",
-    "typecheck": "tsc --project app"
+    "typecheck": "tsc --project app",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@remix-run/node": "0.15.2",
