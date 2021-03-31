@@ -16,7 +16,7 @@
     "build": "run-p build:*",
     "build:css": "postcss styles --base styles --dir app/styles --env production",
     "build:remix": "remix build2",
-    "clean": "del app-build public/build",
+    "clean": "del .cache build public/build app/styles",
     "dev": "pm2-dev pm2.config.js",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx . --fix",
     "prepare": "husky install .config/husky",
