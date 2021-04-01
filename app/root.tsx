@@ -24,10 +24,33 @@ const loader: LoaderFunction = () => {
 const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalCSS },
   { rel: 'stylesheet', href: interCSS },
+  { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+  { rel: 'apple-touch-startup-image', href: '/apple-touch-icon.png' },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '32x32',
+    href: '/favicon-32x32.png',
+  },
+  {
+    rel: 'icon',
+    type: 'image/png',
+    sizes: '16x16',
+    href: '/favicon-16x16.png',
+  },
+  { rel: 'manifest', href: '/site.webmanifest' },
 ];
 
 const meta: MetaFunction = () => ({
   viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
+  'format-detection': 'telephone=no',
+  'apple-mobile-web-app-title': 'Remix + Tailwind Starter',
+  'apple-mobile-web-app-capable': 'yes',
+  'apple-mobile-web-app-status-bar-style': 'black-transparent',
+  'theme-color': '#000',
+  'mobile-web-app-capable': 'yes',
+  'msapplication-config': '/browserconfig.xml',
+  'msapplication-TileColor': '#000',
 });
 
 const App: React.VFC = () => {
