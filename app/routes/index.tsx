@@ -31,10 +31,12 @@ const Index: React.VFC = () => {
 
   return (
     <div className="p-5 text-center">
-      <h2 className="font-medium">Welcome to Remix!</h2>
+      <h2 className="font-medium">Welcome to Remix with Tailwind!</h2>
       <p>
-        <a href="https://docs.remix.run">Check out the docs</a> to get
-        started.
+        <a className="text-blue-600" href="https://docs.remix.run">
+          Check out the docs
+        </a>{' '}
+        to get started.
       </p>
       <p>Message from the loader: {data.message}</p>
     </div>
