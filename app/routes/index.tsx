@@ -18,8 +18,8 @@ const loader: LoaderFunction = () => {
 };
 
 const meta: MetaFunction = () => ({
-  title: 'Remix Starter',
-  description: 'Welcome to remix!',
+  title: 'Remix + Tailwind Starter',
+  description: 'Welcome to Remix with Tailwind!',
 });
 
 const headers: HeadersFunction = () => ({
