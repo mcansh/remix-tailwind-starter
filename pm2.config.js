@@ -1,9 +1,12 @@
 module.exports = {
   apps: [
     {
-      name: 'Vercel',
-      script: 'vc dev',
-      ignore_watch: ['.'],
+      name: 'Express',
+      script: 'node index.js',
+      watch: ['build/assets.json'],
+      watch_options: {
+        followSymlinks: false,
+      },
       env: {
         NODE_ENV: 'development',
       },
