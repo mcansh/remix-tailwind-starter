@@ -20,8 +20,7 @@
     "dev": "pm2-dev pm2.config.js",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx . --fix",
     "prepare": "husky install .config/husky",
-    "typecheck": "tsc --project app",
-    "vercel-build": "npm run build"
+    "typecheck": "tsc --project app"
   },
   "dependencies": {
     "@remix-run/node": "0.15.2",
