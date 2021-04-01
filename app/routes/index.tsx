@@ -4,6 +4,7 @@ import type {
   HeadersFunction,
   LoaderFunction,
   MetaFunction,
+  RouteComponent,
 } from '@remix-run/node';
 
 const loader: LoaderFunction = () => {
@@ -26,7 +27,7 @@ const headers: HeadersFunction = () => ({
     'max-age=600, s-maxage=604800, stale-while-revalidate=604800',
 });
 
-const Index: React.VFC = () => {
+const Index: RouteComponent = () => {
   const data = useRouteData<{ message: string }>();
 
   return (
