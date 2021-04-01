@@ -33,7 +33,7 @@ const Index: React.VFC = () => {
     <div className="p-5 text-center">
       <h2 className="font-medium">Welcome to Remix!</h2>
       <p>
-        <a href="https://remix.run/dashboard/docs">Check out the docs</a> to get
+        <a href="https://docs.remix.run">Check out the docs</a> to get
         started.
       </p>
       <p>Message from the loader: {data.message}</p>
