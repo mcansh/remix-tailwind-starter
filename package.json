@@ -22,7 +22,8 @@
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx . --fix",
     "prepare": "husky install .config/husky",
     "start": "node index.js",
-    "typecheck": "tsc --project app"
+    "typecheck": "tsc --project app",
+    "validate": "run-p lint typecheck"
   },
   "dependencies": {
     "@remix-run/express": "0.15.2",
