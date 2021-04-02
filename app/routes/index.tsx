@@ -7,6 +7,8 @@ import type {
   RouteComponent,
 } from '@remix-run/node';
 
+const handle = { hydrate: false };
+
 const loader: LoaderFunction = () => {
   const body = JSON.stringify({ message: 'this is awesome 😎' });
   return new Response(body, {
@@ -45,4 +47,4 @@ const Index: RouteComponent = () => {
 };
 
 export default Index;
-export { headers, loader, meta };
+export { handle, headers, loader, meta };
