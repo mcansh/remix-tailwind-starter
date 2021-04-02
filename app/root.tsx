@@ -1,7 +1,14 @@
 import * as React from 'react';
 import type { LinksFunction } from '@remix-run/react';
-import { Meta, Scripts, Links, useRouteData } from '@remix-run/react';
+import {
+  useMatches,
+  Meta,
+  Scripts,
+  Links,
+  useRouteData,
+} from '@remix-run/react';
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import { Outlet } from 'react-router';
 
 import globalCSS from './styles/global.css';
@@ -11,15 +18,7 @@ interface RouteData {
   date: Date;
 }
 
-const loader: LoaderFunction = () => {
-  const body = JSON.stringify({ date: new Date() });
-  return new Response(body, {
-    status: 200,
-    headers: {
-      'content-type': 'application/json',
-    },
-  });
-};
+const loader: LoaderFunction = () => json({ date: new Date() });
 
 const links: LinksFunction = () => [
   { rel: 'stylesheet', href: globalCSS },
@@ -55,6 +54,8 @@ const meta: MetaFunction = () => ({
 
 const App: React.VFC = () => {
   const data = useRouteData<RouteData>();
+  const matches = useMatches();
+  const includeScripts = matches.some(match => match.handle?.hydrate);
 
   return (
     <html lang="en">
@@ -66,10 +67,20 @@ const App: React.VFC = () => {
       <body className="dark:bg-gray-800 dark:text-white">
         <Outlet />
         <footer className="pt-20 text-center text-gray-600 dark:text-white">
-          <p>This page was rendered at {data.date.toLocaleString()}</p>
+          <p>
+            This page was rendered at{' '}
+            {new Date(data.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              second: 'numeric',
+            })}
+          </p>
         </footer>
 
-        <Scripts />
+        {includeScripts && <Scripts />}
       </body>
     </html>
   );
