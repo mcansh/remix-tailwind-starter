@@ -1,10 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [push]
 
 jobs:
   deploy:
@@ -33,22 +29,23 @@ jobs:
       - name: Deploy Preview
         uses: amondnet/vercel-action@v20
         id: vercel-deploy-preview
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'push' && github.ref != 'refs/heads/main'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
+
       - name: Deploy Production
         uses: amondnet/vercel-action@v20
         id: vercel-deploy-production
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           working-directory: .
-          vercel-args: '--prod'
+          vercel-args: "--prod"
           alias-domains: ${{ secrets.VERCEL_DOMAIN }}
