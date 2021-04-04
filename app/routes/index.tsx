@@ -25,8 +25,7 @@ const meta: MetaFunction = () => ({
 });
 
 const headers: HeadersFunction = () => ({
-  'Cache-Control':
-    'max-age=600, s-maxage=604800, stale-while-revalidate=604800',
+  'Cache-Control': 's-maxage=1, stale-while-revalidate=59',
 });
 
 const Index: RouteComponent = () => {
