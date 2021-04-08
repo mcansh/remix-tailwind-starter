@@ -55,7 +55,7 @@ const meta: MetaFunction = () => ({
 const App: React.VFC = () => {
   const data = useRouteData<RouteData>();
   const matches = useMatches();
-  const includeScripts = matches.some(match => match.handle?.hydrate);
+  const includeScripts = matches.some(match => match.handle?.hydrate !== false);
 
   return (
     <html lang="en">
