@@ -26,12 +26,28 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.all(
-  '*',
-  createRequestHandler({
-    build: require('./build'),
-  })
-);
+if (process.env.NODE_ENV !== 'production') {
+  const cwd = process.cwd();
+  app.all('*', (req, res) => {
+    for (const key in require.cache) {
+      if (key.startsWith(path.join(cwd, 'build'))) {
+        delete require.cache[key];
+        // eslint-disable-next-line no-console
+        console.log('deleted', key);
+      }
+    }
+    return createRequestHandler({
+      build: require('./build'),
+    })(req, res);
+  });
+} else {
+  app.all(
+    '*',
+    createRequestHandler({
+      build: require('./build'),
+    })
+  );
+}
 
 const port = process.env.PORT || 3000;
 
