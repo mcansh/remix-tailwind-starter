@@ -5,18 +5,7 @@ const { createRequestHandler } = require('@remix-run/express');
 
 const app = express();
 
-app.use(
-  express.static('public', {
-    setHeaders(res, absolutePath) {
-      if (process.env.NODE_ENV === 'production') {
-        const filePath = path.relative(process.cwd(), absolutePath);
-        if (filePath.startsWith('public/build/')) {
-          res.set('Cache-Control', 'public, max-age=31536000');
-        }
-      }
-    },
-  })
-);
+app.use(express.static('public', { immutable: true, maxAge: '1y' }));
 
 // it doesn't appear fly.io will auto upgrade connections
 app.use((req, res, next) => {
