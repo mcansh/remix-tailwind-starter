@@ -1,5 +1,5 @@
-const { createRequestHandler } = require('@remix-run/vercel');
+const { createRequestHandler } = require('@remix-run/architect');
 
-module.exports = createRequestHandler({
+exports.handler = createRequestHandler({
   build: require('./build'),
 });
