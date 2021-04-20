@@ -5,6 +5,14 @@ module.exports = {
       script: 'node index.js',
       watch: ['index.js'],
       watch_options: { followSymlinks: false },
+      env: {
+        NODE_ENV: 'development',
+      },
+    },
+    {
+      name: 'Live Reload',
+      script: 'livereload public/build',
+      ignore_watch: ['.'],
     },
     {
       name: 'CSS',

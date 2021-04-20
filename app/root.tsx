@@ -81,6 +81,10 @@ const App: React.VFC = () => {
         </footer>
 
         {includeScripts && <Scripts />}
+
+        {process.env.NODE_ENV === 'development' && (
+          <script src="http://localhost:35729/livereload.js?snipver=1" />
+        )}
       </body>
     </html>
   );
