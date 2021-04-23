@@ -1,0 +1,11 @@
+---
+application:
+  name: "remix-tailwind-starter"
+  project: "remix-tailwind-starter"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-remix-tailwind-starter"
+  routes:
+  - application_name: "remix-tailwind-starter"
+    paths:
+    - "/*"
