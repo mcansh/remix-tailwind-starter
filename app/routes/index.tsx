@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { useRouteData } from '@remix-run/react';
+import { useRouteData } from 'remix';
 import type {
   HeadersFunction,
   LoaderFunction,
   MetaFunction,
   RouteComponent,
-} from '@remix-run/node';
+} from 'remix';
 
 const handle = { hydrate: false };
 
