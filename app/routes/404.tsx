@@ -1,5 +1,5 @@
-import type { RouteComponent } from '@remix-run/node';
 import * as React from 'react';
+import type { RouteComponent } from 'remix';
 
 function meta() {
   return { title: "Ain't nothing here" };

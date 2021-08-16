@@ -10,11 +10,6 @@ module.exports = {
       },
     },
     {
-      name: 'Live Reload',
-      script: 'livereload public/build',
-      ignore_watch: ['.'],
-    },
-    {
       name: 'CSS',
       script: 'postcss styles --base styles --dir app/styles --ext css -w',
       ignore_watch: ['.'],

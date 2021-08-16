@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type { LinksFunction } from '@remix-run/react';
+import type { LinksFunction, LoaderFunction, MetaFunction } from 'remix';
 import {
+  LiveReload,
   useMatches,
   Meta,
   Scripts,
   Links,
   useRouteData,
-} from '@remix-run/react';
-import type { LoaderFunction, MetaFunction } from '@remix-run/node';
-import { json } from '@remix-run/node';
+  json,
+} from 'remix';
 import { Outlet } from 'react-router';
 
 import globalCSS from './styles/global.css';
@@ -82,9 +82,7 @@ const App: React.VFC = () => {
 
         {includeScripts && <Scripts />}
 
-        {process.env.NODE_ENV === 'development' && (
-          <script src="http://localhost:35729/livereload.js?snipver=1" />
-        )}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
   );
