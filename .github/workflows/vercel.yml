@@ -24,7 +24,7 @@ jobs:
           npm ci
           npm run build
         env:
-          REMIX_REGISTRY_TOKEN: ${{ secrets.REMIX_REGISTRY_TOKEN }}
+          REMIX_TOKEN: ${{ secrets.REMIX_TOKEN }}
 
       - name: Deploy Preview
         uses: amondnet/vercel-action@v20
