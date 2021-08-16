@@ -1,4 +1,4 @@
-import type { RouteComponent } from '@remix-run/node';
+import type { RouteComponent } from 'remix';
 import * as React from 'react';
 
 function meta() {

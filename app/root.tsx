@@ -1,14 +1,6 @@
 import * as React from 'react';
-import type { LinksFunction } from '@remix-run/react';
-import {
-  useMatches,
-  Meta,
-  Scripts,
-  Links,
-  useRouteData,
-} from '@remix-run/react';
-import type { LoaderFunction, MetaFunction } from '@remix-run/node';
-import { json } from '@remix-run/node';
+import type { LinksFunction, LoaderFunction, MetaFunction } from 'remix';
+import { useMatches, Meta, Scripts, Links, useRouteData, json } from 'remix';
 import { Outlet } from 'react-router';
 
 import globalCSS from './styles/global.css';
